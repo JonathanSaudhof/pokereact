@@ -5,8 +5,7 @@ import { Route, Switch } from "react-router-dom";
 
 // pages
 
-import Dashboard from "./pages/Dashboard";
-import PokemonDetail from "./pages/PokemonDetail";
+import Overview from "./pages/Overview";
 
 const MyHeader = styled.header`
   positin: fixed;
@@ -39,16 +38,9 @@ function App() {
           <Route
             exact
             path='/:page'
-            render={(props) => <Dashboard page={props.match.params.page} />}
+            render={(props) => <Overview page={props.match.params.page} />}
           />
-          <Route
-            exact
-            path='/pokemon/:pokemonId'
-            render={(props) => (
-              <PokemonDetail pokemonId={props.match.params.pokemonId} />
-            )}
-          />
-          <Route exact path='/' render={(props) => <Dashboard page={1} />} />
+          <Route exact path='/' render={(props) => <Overview page={1} />} />
         </Switch>
       </Main>
     </div>
