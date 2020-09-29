@@ -120,7 +120,7 @@ const Dashboard = ({ page }) => {
     <div>
       {isLoading ? (
         <Loader>
-          <span>is Loading</span>
+          <span>is loading</span>
         </Loader>
       ) : (
         <>
