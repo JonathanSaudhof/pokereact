@@ -18,7 +18,11 @@ const Pageination = styled.ul`
     border-right: 1px solid ${(props) => props.theme.borderColor};
     background: ${(props) => props.theme.lightColor};
     color: black;
-
+    &.active {
+      background: ${(props) => props.theme.midColor};
+      color: white;
+      font-weight: 600;
+    }
     &:first-child {
       border-radius: 10px 0 0 10px;
       border-left: 1px solid ${(props) => props.theme.borderColor};
@@ -86,7 +90,11 @@ const Dashboard = ({ page }) => {
 
   for (let i = 1; (i - 1) * limit < pageCount; i++) {
     navigationItems.push(
-      <a href={"/" + i} key={i} className='navigation-item'>
+      <a
+        href={"/" + i}
+        key={i}
+        className={`navigation-item ${page == i ? "active" : ""}`}
+      >
         {i}
       </a>,
     );
