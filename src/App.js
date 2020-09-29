@@ -19,6 +19,10 @@ const MyHeader = styled.header`
   font-weight: 600;
   box-shadow: 0 4px 4px 0px rgba(0, 0, 0, 0.2);
   background: ${(props) => props.theme.midColor};
+  a {
+    text-decoration: none;
+    color: black;
+  }
 `;
 
 const Main = styled.main`
@@ -31,7 +35,7 @@ function App() {
   return (
     <div className='App'>
       <MyHeader>
-        <div>POKEREACT</div>
+        <a href='/'>POKEREACT</a>
       </MyHeader>
       <Main>
         <Switch>

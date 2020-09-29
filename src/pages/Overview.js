@@ -36,6 +36,22 @@ const Pageination = styled.ul`
   }
 `;
 
+const Loader = styled.div`
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 700;
+  font-size: 36px;
+`;
+
 const Dashboard = ({ page }) => {
   let [pokemonsOnPage, setPokemonsOnPage] = useState([]);
   let [isLoading, setIsLoading] = useState(true);
@@ -103,7 +119,9 @@ const Dashboard = ({ page }) => {
   return (
     <div>
       {isLoading ? (
-        "is loading"
+        <Loader>
+          <span>is Loading</span>
+        </Loader>
       ) : (
         <>
           <Pageination>{navigationItems}</Pageination>
