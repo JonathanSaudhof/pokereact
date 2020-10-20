@@ -4,6 +4,8 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router } from "react-router-dom";
 
+// Poke Context
+
 import { ThemeProvider } from "styled-components";
 import theme from "./layout/theme";
 import GlobalStyle from "./layout/globalstyle";

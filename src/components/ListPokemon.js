@@ -9,11 +9,11 @@ const PokemonOverviewContainer = styled.div`
   flex-wrap: wrap;
 `;
 
-const ListPokemon = ({ pokemonsOnPage = [], page }) => {
+const ListPokemon = ({ pokemonsOnPage = [] }) => {
   return (
     <>
       <PokemonOverviewContainer>
-        {pokemonsOnPage?.map((pokemon, index) => (
+        {pokemonsOnPage?.map((pokemon) => (
           <PokemonPreview key={pokemon.id} {...pokemon} />
         ))}
       </PokemonOverviewContainer>
