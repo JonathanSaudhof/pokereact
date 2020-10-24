@@ -2,45 +2,59 @@ import React, { useContext } from "react";
 import PokeContext from "../../pokeContext";
 import Overview from "./overview";
 
-const OverviewContainer = () => {
-  let context = useContext(PokeContext);
-  const {
-    allPokemon,
-    pokeCount,
+const OverviewContainer = ({ page }) => {
+  let {
+    limit,
     currentPage,
+    pokeCount,
     setCurrentPage,
-    nextPage,
     prevPage,
-    showLimit,
-  } = context;
+    nextPage,
+    allPokemon,
+  } = useContext(PokeContext);
 
-  const navigationItems = [];
+  function getNavigationItems() {
+    const navigationItems = [];
 
-  for (let i = 0; i * showLimit < pokeCount; i++) {
     navigationItems.push(
       <button
-        key={i}
-        className={`navigation-item ${currentPage == i ? "active" : ""}`}
-        onClick={() => setCurrentPage(i)}
+        className={`navigation-item next-prev`}
+        onClick={() => prevPage()}
       >
-        {i + 1}
+        {"<"}
       </button>,
     );
+
+    for (let i = 0; i * limit < pokeCount; i++) {
+      navigationItems.push(
+        <button
+          key={i}
+          className={`navigation-item ${currentPage === i ? "active" : ""}`}
+          onClick={() => setCurrentPage(i)}
+        >
+          {i + 1}
+        </button>,
+      );
+    }
+    navigationItems.push(
+      <button
+        className={`navigation-item next-prev`}
+        onClick={() => nextPage()}
+      >
+        {">"}
+      </button>,
+    );
+    return navigationItems;
   }
 
-  const pokemonsOnPage = allPokemon.slice(currentPage, currentPage + showLimit);
-
-  // const NextButton = () => {
-  //   return <button onClick={() => nextPage()}>Next</button>;
-  // };
-
-  // const PrevButton = () => {
-  //   return <button onClick={() => prevPage()}>Prev</button>;
-  // };
+  const pokemonsOnPage = allPokemon.slice(
+    page || currentPage,
+    page || currentPage + limit,
+  );
 
   return (
     <Overview
-      navigationItems={navigationItems}
+      navigationItems={getNavigationItems()}
       pokemonsOnPage={pokemonsOnPage}
     />
   );

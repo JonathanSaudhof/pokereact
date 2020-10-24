@@ -15,8 +15,10 @@ const Pageination = styled.ul`
     border-right: 1px solid ${(props) => props.theme.borderColor};
     background: ${(props) => props.theme.lightColor};
     color: black;
+    outline: none;
     &.active {
       background: ${(props) => props.theme.midColor};
+      box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.1);
       color: white;
       font-weight: 600;
     }
@@ -30,6 +32,13 @@ const Pageination = styled.ul`
     :hover {
       font-weight: bold;
       cursor: pointer;
+    }
+    :focus {
+    }
+    &.next-prev {
+      color: white;
+      font-weight: bold;
+      background-color: ${(props) => props.theme.midColor};
     }
   }
 `;

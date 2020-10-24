@@ -11,10 +11,8 @@ const Overview = ({
 }) => {
   return (
     <div>
-      {/* TODO: <PrevButton /> */}
       <Pageination>{navigationItems}</Pageination>
       <ListPokemon pokemonsOnPage={pokemonsOnPage} page pageCount />
-      {/* TODO:  <NextButton /> */}
     </div>
   );
 };

@@ -7,16 +7,19 @@ import { BrowserRouter as Router } from "react-router-dom";
 // Poke Context
 
 import { ThemeProvider } from "styled-components";
+import { PokeProvider } from "./pokeContext";
 import theme from "./layout/theme";
 import GlobalStyle from "./layout/globalstyle";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <App />
-      </ThemeProvider>
+      <PokeProvider>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <App />
+        </ThemeProvider>
+      </PokeProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById("root"),
