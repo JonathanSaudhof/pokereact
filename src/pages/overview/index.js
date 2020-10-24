@@ -18,7 +18,7 @@ const OverviewContainer = ({ page }) => {
 
     navigationItems.push(
       <button
-        className={`navigation-item next-prev`}
+        className={`navigation-item shadow next-prev`}
         onClick={() => prevPage()}
       >
         {"<"}
@@ -29,7 +29,9 @@ const OverviewContainer = ({ page }) => {
       navigationItems.push(
         <button
           key={i}
-          className={`navigation-item ${currentPage === i ? "active" : ""}`}
+          className={`navigation-item shadow ${
+            currentPage === i ? "active" : ""
+          }`}
           onClick={() => setCurrentPage(i)}
         >
           {i + 1}
@@ -38,7 +40,7 @@ const OverviewContainer = ({ page }) => {
     }
     navigationItems.push(
       <button
-        className={`navigation-item next-prev`}
+        className={`navigation-item shadow next-prev`}
         onClick={() => nextPage()}
       >
         {">"}
