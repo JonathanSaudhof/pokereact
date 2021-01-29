@@ -72,10 +72,8 @@ export class PokeProvider extends React.Component<Props, State> {
         const pokemons = doc.data.results;
         let getImagesAndPokemonData: Promise<object>[] = [];
 
-        pokemons.forEach((pokemon: { name: string }) => {
-          getImagesAndPokemonData.push(
-            axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`),
-          );
+        pokemons.forEach((pokemon: { url: string }) => {
+          getImagesAndPokemonData.push(axios.get(pokemon.url));
         });
         pokemonRawData = await Promise.all(getImagesAndPokemonData);
       })
